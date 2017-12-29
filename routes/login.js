@@ -10,7 +10,7 @@ router.post('/',function(req,res,next){
         }
         else
         {
-            res.json(req.body);
+            res.json(count);
         }
     });
 });
