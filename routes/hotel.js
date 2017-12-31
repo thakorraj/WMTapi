@@ -15,6 +15,19 @@ router.get('/',function(req,res,next){
     });
 });
 
+router.get('/:id',function(req,res,next){
+    hotel.getHotelById(req.params.id,function(err,rows){
+        if(err)
+        {
+            res.json(err);
+        }
+        else
+        {
+            res.json(rows);
+        }
+    });
+});
+
 router.post('/',function(req,res,next){
     hotel.addHotel(req.body,function(err,count){
         if(err)

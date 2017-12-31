@@ -6,6 +6,10 @@ var traveller={
         return db.query("select * from traveller_tbl",callback);
     },
 
+    getTravellerById:function(id,callback)
+    {
+        return db.query("select * from traveller_tbl where traveller_id=?",[id],callback);
+    },
     addTraveller:function(Traveller,callback)
     {
      //   return db.query("insert into car_tbl values(car_name=?,?,?,?,?,?,?,?)",[Car.car_name,Car.car_color,Car.car_type,Car.car_img,Car.car_rate,Car.car_details,Car.car_category,Car.fk_traveller_id],callback);
