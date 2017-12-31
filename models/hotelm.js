@@ -5,6 +5,10 @@ var hotel={
     {
         return db.query("select * from hotel_rating",callback);
     },
+    getHotelById:function(id,callback)
+    {
+        return db.query("select * from hotel_rating where hotel_id=?",[id],callback);
+    },
 
     addHotel:function(hotel,callback)
     {
