@@ -20,6 +20,15 @@ var traveller = {
 
     updateTraveller: function(id, Traveller, callback) {
         return db.query("update traveller_tbl set traveller_name=?,traveller_address=?,traveller_img=?,city=? where traveller_id=?", [Traveller.traveller_name, Traveller.traveller_address, Traveller.traveller_img, Traveller.city, id], callback);
+    },
+    deleteAll: function(item, callback) {
+
+        var delarr = [];
+        for (i = 0; i < item.length; i++) {
+
+            delarr[i] = item[i].traveller_id;
+        }
+        return db.query("delete from traveller_tbl where traveller_id in (?)", [delarr], callback);
     }
 };
 module.exports = traveller;

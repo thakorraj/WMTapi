@@ -22,6 +22,15 @@ var user = {
 
     updateUser: function(id, User, callback) {
         return db.query("update user_tbl set user_name=?,user_address=?,user_DO_B=?,user_gender=?,user_photo=?,user_mobile_no=? where user_email_id=?", [User.user_name, User.user_address, User.user_DO_B, User.user_gender, User.user_photo, User.user_mobile_no, id], callback);
-    }
+    },
+    deleteAll: function(item, callback) {
+
+        var delarr = [];
+        for (i = 0; i < item.length; i++) {
+
+            delarr[i] = item[i].user_email_id;
+        }
+        return db.query("delete from user_tbl where user_email_id in (?)", [delarr], callback);
+    },
 };
 module.exports = user
