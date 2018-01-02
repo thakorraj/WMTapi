@@ -30,7 +30,7 @@ var user = {
 
             delarr[i] = item[i].user_email_id;
         }
-        return db.query("delete from user_tbl where user_email_id in (?)", [delarr], callback);
+        return db.query("delete from user_tbl where user_email_id IN (?)", [delarr], callback);
     },
 };
 module.exports = user
