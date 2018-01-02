@@ -16,6 +16,8 @@ var login = require('./routes/login');
 var hotel = require('./routes/hotel');
 var foremail = require('./routes/emailr');
 var user_delall = require('./routes/user_deleteall');
+var traveler_delall = require('./routes/traveller_deleteall');
+var hotel_delall = require('./routes/hotel_deleteall');
 
 
 var app = express();
@@ -42,7 +44,10 @@ app.use('/users', users);
 app.use('/login', login);
 app.use('/hotel', hotel);
 app.use('/email', foremail);
-app.use('/deletall', user_delall);
+app.use('/deletalluser', user_delall);
+app.use('/deletealltraveler', traveler_delall);
+app.use('/deleteallhotel', hotel_delall);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
