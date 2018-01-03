@@ -28,7 +28,7 @@ var hotel = {
 
             delarr[i] = item[i].hotel_id;
         }
-        return db.query("delete from hotel_tbl where hotel_id in (?)", [delarr], callback);
+        return db.query("delete from hotel_rating where hotel_id in (?)", [delarr], callback);
     },
 };
 module.exports = hotel;
