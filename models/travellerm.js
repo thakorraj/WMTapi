@@ -29,6 +29,11 @@ var traveller = {
             delarr[i] = item[i].traveller_id;
         }
         return db.query("delete from traveller_tbl where traveller_id in (?)", [delarr], callback);
+    },
+
+    traveller_login:function(login,callback)
+    {
+        return db.query("select * from traveller_tbl where traveller_email=? and traveller_password=?",[login.traveller_email,login.traveller_password],callback);
     }
 };
 module.exports = traveller;
