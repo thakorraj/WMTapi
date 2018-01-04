@@ -21,6 +21,12 @@ var car={
     updateCar:function(id,Car,callback)
     {
         return db.query("update car_tbl set car_name=?,car_color=?,car_type=?,car_img=?,car_rate=?,car_details=?,car_category=?,fk_traveller_id=? where car_id=?",[Car.car_name,Car.car_color,Car.car_type,Car.car_img,Car.car_rate,Car.car_details,Car.car_category,Car.fk_traveller_id,id],callback);
+    },
+
+    carbyid:function(id,callback)
+    {
+        return db.query("select * from traveller_tbl t,car_tbl c where c.fk_traveller_id=t.traveller_id and t.traveller_email=?",[id],callback);
     }
+    
 };
 module.exports=car;
