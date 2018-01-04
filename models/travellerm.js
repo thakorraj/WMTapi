@@ -34,6 +34,10 @@ var traveller = {
     traveller_login:function(login,callback)
     {
         return db.query("select * from traveller_tbl where traveller_email=? and traveller_password=?",[login.traveller_email,login.traveller_password],callback);
-    }
+    },
+
+    getTravellerByEmail: function(id, callback) {
+        return db.query("select * from traveller_tbl where traveller_email=?", [id], callback);
+    },
 };
 module.exports = traveller;

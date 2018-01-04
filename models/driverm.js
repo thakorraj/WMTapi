@@ -20,7 +20,14 @@ var driver={
 
     updateDriver:function(id,Driver,callback)
     {
-        return db.query("update driver_tbl set driver_name=?,driver_license_no=?,fk_traveller_id=? where driver_id=?",[Driver.driver_name,Driver.driver_license_no,Driver.fk_traveller_id,id],callback);
-    }
+        return db.query("update driver_tbl set driver_name=?,driver_license_no=?,Mobile_no=? where driver_id=?",[Driver.driver_name,Driver.driver_license_no,Driver.Mobile_no,id],callback);
+    },
+
+    driverbyid:function(id,callback)
+    {
+        return db.query("select * from traveller_tbl t,driver_tbl d where d.fk_traveller_id=t.traveller_id and t.traveller_email=?",[id],callback);
+    },
+
+
 };
 module.exports=driver;
