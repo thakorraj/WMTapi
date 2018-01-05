@@ -15,7 +15,7 @@ router.get('/',function(req,res,next){
     });
 });
 router.get('/:id', function(req, res, next) {
-    Driver.driverbyid(req.params.id, function(err, rows) {
+    Driver.getDriverById(req.params.id, function(err, rows) {
         if (err) {
             res.json(err);
         } else {
