@@ -19,6 +19,7 @@ var user_delall = require('./routes/user_deleteall');
 var trav_delall = require('./routes/traveller_deleteall');
 var hotel_delall = require('./routes/hotel_deleteall');
 var traveller_login=require('./routes/traveller_login');
+var traveller_email=require('./routes/traveller_email_id');
 
 
 var app = express();
@@ -49,6 +50,7 @@ app.use('/deletealltrav', trav_delall);
 app.use('/deletalluser', user_delall);
 app.use('/deletehotels', hotel_delall);
 app.use('/traveller_login',traveller_login);
+app.use('/temail',traveller_email);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
