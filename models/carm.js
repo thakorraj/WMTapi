@@ -26,7 +26,11 @@ var car={
     carbyid:function(id,callback)
     {
         return db.query("select * from traveller_tbl t,car_tbl c where c.fk_traveller_id=t.traveller_id and t.traveller_email=?",[id],callback);
-    }
+    },
+
+    getCarById: function(id, callback) {
+        return db.query("select * from car_tbl where car_id=?", [id], callback);
+    },
     
 };
 module.exports=car;

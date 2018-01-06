@@ -15,7 +15,7 @@ router.get('/',function(req,res,next){
     });
 });
 router.get('/:id', function(req, res, next) {
-    Car.carbyid(req.params.id, function(err, rows) {
+    Car.getCarById(req.params.id, function(err, rows) {
         if (err) {
             res.json(err);
         } else {
