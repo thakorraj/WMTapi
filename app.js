@@ -24,6 +24,7 @@ var driveremail=require('./routes/driver_by_id');
 var driverall=require('./routes/driver_deleteall');
 var caremail=require('./routes/car_by_id');
 var travellerpassword=require('./routes/traveller_password');
+var car_list=require('./routes/car_list');
 
 var app = express();
 
@@ -58,6 +59,7 @@ app.use('/driveremail',driveremail);
 app.use('/driverall',driverall);
 app.use('/caremail',caremail);
 app.use('/travellerpassword',travellerpassword);
+app.use('/carlist',car_list);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -31,6 +31,11 @@ var car={
     getCarById: function(id, callback) {
         return db.query("select * from car_tbl where car_id=?", [id], callback);
     },
+
+    getCarList:function(callback)
+    {
+        return db.query("select distinct car_name,car_img from car_tbl",callback);
+    }
     
 };
 module.exports=car;
