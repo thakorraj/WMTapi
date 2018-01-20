@@ -43,6 +43,11 @@ var traveller = {
     changePassword:function(id,Traveller,callback)
     {
         return db.query("update traveller_tbl set traveller_password=? where traveller_email=?",[Traveller.traveller_password,id],callback);
+    },
+
+    getTrvellerByCar:function(id,callback)
+    {
+        return db.query("select * from car_tbl c,traveller_tbl t where t.traveller_id=c.fk_traveller_id and c.car_name=?",[id],callback);
     }
 };
 module.exports = traveller;
