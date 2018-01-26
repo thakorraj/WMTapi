@@ -35,6 +35,11 @@ var car={
     getCarList:function(callback)
     {
         return db.query("select distinct car_name,car_img from car_tbl",callback);
+    },
+
+    getCarRate:function(Car,callback)
+    {
+        return db.query("SELECT * FROM `car_tbl` WHERE car_name=? and fk_traveller_id=?",[Car.car_name,Car.fk_traveller_id],callback);
     }
     
 };
