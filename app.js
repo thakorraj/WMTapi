@@ -18,15 +18,15 @@ var foremail = require('./routes/emailr');
 var user_delall = require('./routes/user_deleteall');
 var trav_delall = require('./routes/traveller_deleteall');
 var hotel_delall = require('./routes/hotel_deleteall');
-var traveller_login=require('./routes/traveller_login');
-var traveller_email=require('./routes/traveller_email_id');
-var driveremail=require('./routes/driver_by_id');
-var driverall=require('./routes/driver_deleteall');
-var caremail=require('./routes/car_by_id');
-var travellerpassword=require('./routes/traveller_password');
-var car_list=require('./routes/car_list');
-var traveller_list=require('./routes/traveller_by_car');
-var order=require('./routes/order');
+var traveller_login = require('./routes/traveller_login');
+var traveller_email = require('./routes/traveller_email_id');
+var driveremail = require('./routes/driver_by_id');
+var driverall = require('./routes/driver_deleteall');
+var caremail = require('./routes/car_by_id');
+var travellerpassword = require('./routes/traveller_password');
+var car_list = require('./routes/car_list');
+var traveller_list = require('./routes/traveller_by_car');
+var order = require('./routes/order');
 
 var app = express();
 
@@ -39,8 +39,8 @@ app.set('view engine', 'jade');
 app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
@@ -55,15 +55,15 @@ app.use('/email', foremail);
 app.use('/deletealltrav', trav_delall);
 app.use('/deletalluser', user_delall);
 app.use('/deletehotels', hotel_delall);
-app.use('/traveller_login',traveller_login);
-app.use('/temail',traveller_email);
-app.use('/driveremail',driveremail);
-app.use('/driverall',driverall);
-app.use('/caremail',caremail);
-app.use('/travellerpassword',travellerpassword);
-app.use('/carlist',car_list);
-app.use('/travellerlist',traveller_list);
-app.use('/order',order);
+app.use('/traveller_login', traveller_login);
+app.use('/temail', traveller_email);
+app.use('/driveremail', driveremail);
+app.use('/driverall', driverall);
+app.use('/caremail', caremail);
+app.use('/travellerpassword', travellerpassword);
+app.use('/carlist', car_list);
+app.use('/travellerlist', traveller_list);
+app.use('/order', order);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
