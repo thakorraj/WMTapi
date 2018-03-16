@@ -11,9 +11,9 @@ var user = {
     user_count: function(callback) {
         return db.query("select count(*) from user_tbl");
     },
-    addUser: function(User, callback) {
+    addUser: function(User,filename, callback) {
 
-        var dt = new Date();
+ /*       var dt = new Date();
         var x = dt.getDate() + "/";
         x += (dt.getMonth() + 1) + "/";
         x += dt.getFullYear();
@@ -36,12 +36,13 @@ var user = {
                 }
                 console.log("The file was saved!");
 
-            });
+            });*/
 
         //   return db.query("insert into car_tbl values(car_name=?,?,?,?,?,?,?,?)",[Car.car_name,Car.car_color,Car.car_type,Car.car_img,Car.car_rate,Car.car_details,Car.car_category,Car.fk_traveller_id],callback);
-        return db.query("insert into user_tbl(user_email_id,user_password,user_name,user_address,user_DO_B,user_gender,user_photo,user_mobile_no,user_type) values(?,?,?,?,?,?,?,?,'admin')", [User.user_email_id, User.user_password, User.user_name, User.user_address, User.user_DO_B, User.user_gender, path1, User.user_mobile_no], callback);
+        //return db.query("insert into user_tbl(user_email_id,user_password,user_name,user_address,user_DO_B,user_gender,user_photo,user_mobile_no,user_type) values(?,?,?,?,?,?,?,?,'admin')", [User.user_email_id, User.user_password, User.user_name, User.user_address, User.user_DO_B, User.user_gender, path1, User.user_mobile_no], callback);
+        return db.query("insert into user_tbl(user_email_id,user_password,user_name,user_address,user_DO_B,user_gender,user_photo,user_mobile_no,user_type) values(?,?,?,?,?,?,?,?,'admin')", [User.user_email_id, User.user_password, User.user_name, User.user_address, User.user_DO_B, User.user_gender, filename, User.user_mobile_no], callback);
         //  return db.query("insert into car_tbl Car.car_name=?,Car.car_color=?,Car.car_type=?,Car.car_img=?,Car.car_rate=?,Car.car_details=?,Car.car_category=?,Car.fk_traveller_id=?",[Car.car_name,Car.car_color,Car.car_type,Car.car_img,Car.car_rate,Car.car_details,Car.car_category,Car.fk_traveller_id],callback);
-        }
+    //    }
     },
 
     deleteUser: function(id, callback) {
