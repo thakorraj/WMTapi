@@ -58,7 +58,17 @@ var car = {
 
     getCarRate: function(Car,callback) {
         return db.query("SELECT * FROM `car_tbl` WHERE car_name=? and fk_traveller_id=?", [Car.car_name, Car.fk_traveller_id], callback);
-    }
+    },
+
+    deleteAll: function(item, callback) {
+        
+                var delarr = [];
+                for (i = 0; i < item.length; i++) {
+        
+                    delarr[i] = item[i].car_id;
+                }
+                return db.query("delete from car_tbl where car_id IN (?)", [delarr], callback);
+            },
 
 };
 module.exports = car;
