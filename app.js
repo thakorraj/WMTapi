@@ -19,7 +19,7 @@ var foremail = require('./routes/emailr');
 var user_delall = require('./routes/user_deleteall');
 var trav_delall = require('./routes/traveller_deleteall');
 var hotel_delall = require('./routes/hotel_deleteall');
-var car_delall = require('./routes/car_deleteall');
+var car_deleteall = require('./routes/car_deleteall');
 var traveller_login = require('./routes/traveller_login');
 var traveller_email = require('./routes/traveller_email_id');
 var driveremail = require('./routes/driver_by_id');
@@ -30,6 +30,7 @@ var car_list = require('./routes/car_list');
 var traveller_list = require('./routes/traveller_by_car');
 var order = require('./routes/order');
 var map = require('./routes/map');
+var orderbill=require('./routes/orderr');
 var app = express();
 
 // view engine setup
@@ -66,8 +67,9 @@ app.use('/travellerpassword', travellerpassword);
 app.use('/carlist', car_list);
 app.use('/travellerlist', traveller_list);
 app.use('/order', order);
-app.use('/deleteallcar', car_delall);
+app.use('/car_deleteall', car_deleteall);
 app.use('/maps', map);
+app.use('/orderbill',orderbill);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
