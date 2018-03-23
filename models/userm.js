@@ -61,5 +61,10 @@ var user = {
         }
         return db.query("delete from user_tbl where user_email_id IN (?)", [delarr], callback);
     },
+
+    changePassword:function(id,User,callback)
+    {
+        return db.query("update user_tbl set user_password=? where user_email_id=?",[User.user_password,id],callback);
+    },
 };
 module.exports = user
