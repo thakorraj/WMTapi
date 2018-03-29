@@ -33,6 +33,10 @@ var map = require('./routes/map');
 var orderbill=require('./routes/orderr');
 var user_email=require('./routes/user_email_id');
 var userpassword = require('./routes/user_password');
+var userorder=require('./routes/order_by_user');
+var travellerorder=require('./routes/order_by_travller');
+var orderall = require('./routes/order_deleteall');
+var orderid=require('./routes/order_by_id');
 var app = express();
 
 // view engine setup
@@ -74,6 +78,10 @@ app.use('/maps', map);
 app.use('/orderbill',orderbill);
 app.use('/uemail',user_email);
 app.use('/userpassword',userpassword);
+app.use('/userorder',userorder);
+app.use('/travellerorder',travellerorder);
+app.use('/orderdeleteall',orderall);
+app.use('/orderid',orderid);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
