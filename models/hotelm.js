@@ -9,6 +9,10 @@ var hotel = {
         return db.query("select * from hotel_rating where hotel_id=?", [id], callback);
     },
 
+    getHotelByCity: function(id, callback) {
+        return db.query("select * from hotel_rating where hotel_city=?", [id], callback);
+    },
+
     addHotel: function(hotel,filename,callback) {
 
     /*    var dt = new Date();

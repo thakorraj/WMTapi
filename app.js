@@ -37,6 +37,7 @@ var userorder=require('./routes/order_by_user');
 var travellerorder=require('./routes/order_by_travller');
 var orderall = require('./routes/order_deleteall');
 var orderid=require('./routes/order_by_id');
+var hotelcity=require('./routes/hotel_by_city');
 var app = express();
 
 // view engine setup
@@ -82,6 +83,7 @@ app.use('/userorder',userorder);
 app.use('/travellerorder',travellerorder);
 app.use('/orderdeleteall',orderall);
 app.use('/orderid',orderid);
+app.use('/hotelcity',hotelcity);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
