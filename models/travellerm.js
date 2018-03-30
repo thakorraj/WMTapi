@@ -46,8 +46,26 @@ var traveller = {
         return db.query("delete from traveller_tbl where traveller_id=?", id, callback);
     },
 
+    updateUserImg: function (ps, filename, callback) {
+        var post = db.query("select * from user_tbl where traveller_id=?", [ps.traveller_id]);
+        post.on('result', function (row) {
+            console.log(row.traveller_img);
+            if (row.traveller_img != '') {
+                var path = 'public/images/traveller/' + row.traveller_img;
+                console.log(path);
+                fs.unlink(path, function (err) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    console.log('Deleted successfuly');
+                });
+            }
+        });
+        return db.query("update traveller_tbl set traveller_name=?,traveller_address=?,traveller_img=?,city=? where traveller_id=?", [ps.traveller_name, ps.traveller_address, filename, ps.city, ps.traveller_id], callback);
+    },
+
     updateTraveller: function(id, Traveller,callback) {
-        return db.query("update traveller_tbl set traveller_name=?,traveller_address=?,traveller_img=?,city=? where traveller_id=?", [Traveller.traveller_name, Traveller.traveller_address, Traveller.traveller_img, Traveller.city, id], callback);
+        return db.query("update traveller_tbl set traveller_name=?,traveller_address=?,city=? where traveller_id=?", [Traveller.traveller_name, Traveller.traveller_address, Traveller.city, id], callback);
     },
     deleteAll: function(item,callback) {
 

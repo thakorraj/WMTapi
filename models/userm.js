@@ -49,8 +49,26 @@ var user = {
         return db.query("delete from user_tbl where user_email_id=?", id, callback);
     },
 
+    updateUserImg: function (ps, filename, callback) {
+        var post = db.query("select * from user_tbl where user_email_id=?", [ps.user_email_id]);
+        post.on('result', function (row) {
+            console.log(row.user_photo);
+            if (row.user_photo != '') {
+                var path = 'public/images/user/' + row.user_photo;
+                console.log(path);
+                fs.unlink(path, function (err) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    console.log('Deleted successfuly');
+                });
+            }
+        });
+        return db.query("update user_tbl set user_name=?,user_address=?,user_DO_B=?,user_gender=?,user_photo=?,user_mobile_no=? where user_email_id=?", [ps.user_name, ps.user_address, ps.user_DO_B, ps.user_gender, filename, ps.user_mobile_no, ps.user_email_id], callback);
+    },
+
     updateUser: function(id, User, callback) {
-        return db.query("update user_tbl set user_name=?,user_address=?,user_DO_B=?,user_gender=?,user_photo=?,user_mobile_no=? where user_email_id=?", [User.user_name, User.user_address, User.user_DO_B, User.user_gender, User.user_photo, User.user_mobile_no, id], callback);
+        return db.query("update user_tbl set user_name=?,user_address=?,user_DO_B=?,user_gender=?,user_mobile_no=? where user_email_id=?", [User.user_name, User.user_address, User.user_DO_B, User.user_gender, User.user_mobile_no, id], callback);
     },
     deleteAll: function(item, callback) {
 

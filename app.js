@@ -38,6 +38,10 @@ var travellerorder=require('./routes/order_by_travller');
 var orderall = require('./routes/order_deleteall');
 var orderid=require('./routes/order_by_id');
 var hotelcity=require('./routes/hotel_by_city');
+var hotelimgu=require('./routes/update_hotelimg');
+var userimgu=require('./routes/update_userimg');
+var travellerimgu=require('./routes/update_travellerimg');
+var carimgu=require('./routes/update_carimg');
 var app = express();
 
 // view engine setup
@@ -84,6 +88,10 @@ app.use('/travellerorder',travellerorder);
 app.use('/orderdeleteall',orderall);
 app.use('/orderid',orderid);
 app.use('/hotelcity',hotelcity);
+app.use('/hotelimgu',hotelimgu);
+app.use('/userimgu',userimgu);
+app.use('/travellerimgu',travellerimgu);
+app.use('/carimgu',carimgu);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
