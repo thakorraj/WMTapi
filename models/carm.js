@@ -62,6 +62,11 @@ var car = {
         return db.query("update car_tbl set car_name=?,car_color=?,car_type=?,car_rate=?,car_details=?,car_category=?,fk_traveller_id=?,car_status=? where car_id=?", [Car.car_name, Car.car_color, Car.car_type, Car.car_rate, Car.car_details, Car.car_category, Car.fk_traveller_id, Car.car_status, id], callback);
     },
 
+    updateCarStatus(id,callback)
+    {
+        return db.query("UPDATE car_tbl set car_status=0 where car_id=?",[id],callback);
+    },
+
     carbyid: function(id,callback) {
         return db.query("select * from traveller_tbl t,car_tbl c where c.fk_traveller_id=t.traveller_id and t.traveller_email=?", [id], callback);
     },
