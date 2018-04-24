@@ -43,6 +43,7 @@ var userimgu=require('./routes/update_userimg');
 var travellerimgu=require('./routes/update_travellerimg');
 var carimgu=require('./routes/update_carimg');
 var carstatus=require('./routes/carstatus_update');
+var driverstatus=require('./routes/driverstatus_update');
 var app = express();
 
 // view engine setup
@@ -94,6 +95,7 @@ app.use('/userimgu',userimgu);
 app.use('/travellerimgu',travellerimgu);
 app.use('/carimgu',carimgu);
 app.use('/carstatus',carstatus);
+app.use('/driverstatus',driverstatus);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
