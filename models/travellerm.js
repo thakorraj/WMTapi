@@ -94,6 +94,11 @@ var traveller = {
     getTrvellerByCar:function(id,callback)
     {
         return db.query("select * from car_tbl c,traveller_tbl t where t.traveller_id=c.fk_traveller_id and c.car_name=? and c.car_status='1'",[id],callback);
+    },
+
+    getTravellerByDriver:function(id,callback)
+    {
+        return db.query("select * from driver_tbl c,traveller_tbl t where t.traveller_id=c.fk_traveller_id and c.fk_traveller_id=? and c.driver_status='1'",[id],callback);
     }
 };
 module.exports = traveller;
